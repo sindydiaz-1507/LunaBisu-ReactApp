@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css'; // ← Import directo al archivo de estilos
 
 function Navbar({ usuario, setUsuario }) {
   const navigate = useNavigate();
@@ -10,23 +11,17 @@ function Navbar({ usuario, setUsuario }) {
   };
 
   return (
-    <nav style={{
-      padding: '1rem',
-      backgroundColor: '#eee',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <div style={{ display: 'flex', gap: '1rem' }}>
-        <Link to="/">Inicio</Link>
-        <Link to="/catalogo">Catálogo</Link>
-        {!usuario && <Link to="/login">Iniciar sesión</Link>}
+    <nav className="navbar">
+      <div className="navbar-links">
+        <Link to="/" className="navbar-link">Inicio</Link>
+        <Link to="/catalogo" className="navbar-link">Catálogo</Link>
+        {!usuario && <Link to="/login" className="navbar-link">Iniciar sesión</Link>}
       </div>
 
       {usuario && (
-        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-          <span>👤 {usuario.nombre}</span>
-          <button onClick={cerrarSesion}>Cerrar sesión</button>
+        <div className="navbar-user">
+          <span className="navbar-usuario">👤 {usuario.nombre}</span>
+          <button className="navbar-button" onClick={cerrarSesion}>Cerrar sesión</button>
         </div>
       )}
     </nav>
