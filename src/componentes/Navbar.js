@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './Navbar.css'; // ← Import directo al archivo de estilos
+import './Navbar.css';
 
 function Navbar({ usuario, setUsuario }) {
   const navigate = useNavigate();
@@ -14,13 +14,13 @@ function Navbar({ usuario, setUsuario }) {
     <nav className="navbar">
       <div className="navbar-links">
         <Link to="/" className="navbar-link">Inicio</Link>
-        <Link to="/catalogo" className="navbar-link">Catálogo</Link>
+        
         {!usuario && <Link to="/login" className="navbar-link">Iniciar sesión</Link>}
       </div>
 
       {usuario && (
         <div className="navbar-user">
-          <span className="navbar-usuario">👤 {usuario.nombre}</span>
+          <span className="navbar-usuario"> {usuario.nombre}</span>
           <button className="navbar-button" onClick={cerrarSesion}>Cerrar sesión</button>
         </div>
       )}

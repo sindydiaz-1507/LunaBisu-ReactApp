@@ -6,14 +6,14 @@ function Catalogo() {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/productos')
+    axios.get('http://localhost:3001/api/productos')
       .then(res => setProductos(res.data))
       .catch(err => console.error('❌ Error al cargar productos:', err));
   }, []);
 
   return (
     <div className="catalogo-container">
-      <h2 className="catalogo-title">🛍️ Catálogo LunaBisu</h2>
+      <h2 className="catalogo-title"> Catálogo LunaBisu</h2>
       <div className="catalogo-grid">
         {productos.map(producto => (
           <div key={producto.Id} className="catalogo-card">
@@ -22,7 +22,7 @@ function Catalogo() {
             )}
             <h3>{producto.Nombre}</h3>
             <p>{producto.Descripcion}</p>
-            <p className="catalogo-precio">💸 C$ {producto.Precio}</p>
+            <p className="catalogo-precio"> C$ {producto.Precio}</p>
             <button className="catalogo-button">Agregar al carrito</button>
           </div>
         ))}

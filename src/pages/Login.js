@@ -43,7 +43,7 @@ function Login({ setUsuario }) {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">🔒 Iniciar sesión</h2>
+        <h2 className="login-title"> Iniciar sesión</h2>
         <form onSubmit={manejarLogin} className="login-form">
           <input
             type="email"
